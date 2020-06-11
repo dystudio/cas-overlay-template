@@ -1,20 +1,30 @@
 buildscript {
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter/'}
+    }
+    repositories {
         mavenLocal()
         gradlePluginPortal()
         mavenCentral()
         jcenter()
-        maven { 
-            url "https://repo.spring.io/libs-milestone" 
+        maven {
+            url "https://repo.spring.io/libs-milestone"
             mavenContent { releasesOnly() }
         }
-        maven { 
-            url "https://repo.spring.io/libs-snapshot" 
+        maven {
+            url "https://repo.spring.io/libs-snapshot"
             mavenContent { snapshotsOnly() }
         }
-        maven { 
-            url "https://plugins.gradle.org/m2/" 
+        maven {
+            url "https://plugins.gradle.org/m2/"
             mavenContent { releasesOnly() }
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/google/'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/jcenter/'
         }
     }
     dependencies {
@@ -23,6 +33,12 @@ buildscript {
         classpath "com.google.cloud.tools:jib-gradle-plugin:${project.jibVersion}"
         classpath "io.freefair.gradle:maven-plugin:${project.gradleMavenPluginVersion}"
         classpath "io.freefair.gradle:lombok-plugin:${project.gradleLombokPluginVersion}"
+    }
+}
+allprojects {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter/'}
     }
 }
 
